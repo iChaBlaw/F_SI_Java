@@ -1,36 +1,27 @@
 public class Produto {
     private String nome;
-    private double preco;
-    private Data dataValidade;
-    
-    public Produto(String nome, double preco, Data dataValidade) {
+    private double valor;
+    private String descricao;
+    private int quantidadeEstoque;
+
+    public Produto(String nome, double valor, String descricao, int quantidadeEstoque){ 
         this.nome = nome;
-        this.preco = preco;
-        this.dataValidade = dataValidade;
+        this.valor = valor;
+        this.descricao = descricao;
+        this.quantidadeEstoque = quantidadeEstoque;
     }
     
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
-    
-    public double getPreco() { return preco; }
-    public void setPreco(double preco) { this.preco = preco; }
-    
-    public Data getDataValidade() { return dataValidade; }
-    public void setDataValidade(Data dataValidade) { this.dataValidade = dataValidade; }
-    
-    public boolean estaVencido(Data data) {
-        if (data.getAno() > dataValidade.getAno()) return true;
-        if (data.getAno() < dataValidade.getAno()) return false;
-        
-        if (data.getMes() > dataValidade.getMes()) return true;
-        if (data.getMes() < dataValidade.getMes()) return false;
-        
-        return data.getDia() > dataValidade.getDia();
-    }
-    
+    public String getNome() {return nome;}
+    public void setNome(String nome) {this.nome = nome;}
+
+    public double getValor() {return valor;}
+    public void setValor(double valor) {this.valor = valor;}
+
+    public int getQuantidadeEstoque() {return quantidadeEstoque;}
+    public void setQuantidadeEstoque(int quantidadeEstoque) {this.quantidadeEstoque = quantidadeEstoque;}
+
     @Override
-    public String toString() {
-        return "Produto: " + nome + " | Preço: R$ " + preco + 
-               " | Validade: " + dataValidade;
+    public String toString(){
+        return "Produto: " + nome + " | Valor: R$" + valor + " | Estoque: " + quantidadeEstoque;
     }
 }
